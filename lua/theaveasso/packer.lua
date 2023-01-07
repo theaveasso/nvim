@@ -3,48 +3,31 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+    return
+end
+
+return packer.startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
- 
+  use "wbthomason/packer.nvim"
+  
+  -- Project Management
+
   -- ColorScheme
-  use { "catppuccin/nvim", as = "catppuccin", config = function() vim.cmd('colorscheme catppuccin') end }
+  use { "catppuccin/nvim", as = "catppuccin", config = function() vim.cmd("colorscheme catppuccin-macchiato") end }
 
-  -- telescope (fizzy finder)
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  -- Completion
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip"
 
-  -- treesitter
-  use { 
-	  'nvim-treesitter/nvim-treesitter', 
-	  {run = ':TSUpdate'}
-  }
-  use 'nvim-treesitter/playground'
+  -- Telescope
 
-  -- lsp
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
+  
+  -- Git integration
 
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-buffer'},
-		  {'hrsh7th/cmp-path'},
-		  {'saadparwaiz1/cmp_luasnip'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'hrsh7th/cmp-nvim-lua'},
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  -- Snippet Collection (Optional)
-		  {'rafamadriz/friendly-snippets'},
-	  }
-  }
-
-end)
+  end)
