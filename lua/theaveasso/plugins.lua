@@ -9,43 +9,57 @@ if not status_ok then
 end
 
 return packer.startup(function(use)
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
-  
-  -- Project Management
+    -- Packer can manage itself
+    use "wbthomason/packer.nvim"
 
-  -- ColorScheme
-  use { "catppuccin/nvim", as = "catppuccin", config = function() vim.cmd("colorscheme catppuccin-macchiato") end }
+    -- Project Management
 
-  -- Telescope
-  use "nvim-lua/popup.nvim"
-
-  use {
-  "nvim-telescope/telescope.nvim", tag = "0.1.x",
-  requires = { {"nvim-lua/plenary.nvim"} }
-}
--- Git integration
-
+    -- ColorScheme
     use {
-  "VonHeikemen/lsp-zero.nvim",
-  requires = {
+        "folke/tokyonight.nvim",
+        config = function() vim.cmd("colorscheme tokyonight-storm")
+    end
+    }
+
+    -- Telescope
+    use "nvim-lua/plenary.nvim"
+    use "nvim-telescope/telescope.nvim"
+
+    use "jose-elias-alvarez/null-ls.nvim"
+
+    -- Git integration
+
+    -- Treesitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate"
+    }
+    use "p00f/nvim-ts-rainbow"
+
+    -- LSP
+    use {
+        "VonHeikemen/lsp-zero.nvim",
+
+        requires = {
     -- LSP Support
-    {"neovim/nvim-lspconfig"},
-    {"williamboman/mason.nvim"},
-    {"williamboman/mason-lspconfig.nvim"},
+            {"neovim/nvim-lspconfig"},
+            {"williamboman/mason.nvim"},
+            {"williamboman/mason-lspconfig.nvim"},
 
     -- Autocompletion
-    {"hrsh7th/nvim-cmp"},
-    {"hrsh7th/cmp-buffer"},
-    {"hrsh7th/cmp-path"},
-    {"saadparwaiz1/cmp_luasnip"},
-    {"hrsh7th/cmp-nvim-lsp"},
-    {"hrsh7th/cmp-nvim-lua"},
+            {"hrsh7th/nvim-cmp"},
+            {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-path"},
+            {"saadparwaiz1/cmp_luasnip"},
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/cmp-nvim-lua"},
 
     -- Snippets
-    {"L3MON4D3/LuaSnip"},
+            {"L3MON4D3/LuaSnip"},
+
     -- Snippet Collection (Optional)
-    {"rafamadriz/friendly-snippets"},
-  }
-}
-  end)
+            {"rafamadriz/friendly-snippets"},
+         }
+    }
+
+end)
