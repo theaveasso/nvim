@@ -10,7 +10,7 @@ nvim .
 - Integrate Terminal, Git
 - LSP, Code completion, Snippet
 - Telescope - Fuzzy finding, and more
-- Ide Like Feature (surround, Syntax highting, autopairs)
+- Ide Like Feature (surround, Syntax highting, autopairs, indent)
 
 ## Todo
 - [x] ~~Config personal favorite config~~
