@@ -7,7 +7,7 @@ local on_attach = function(_, bufnr)
 	-- for LSP related items. It sets the mode, buffer and description for us each time.
 	local nmap = function(keys, func, desc)
 		if desc then
-			djksc = 'LSP: ' .. desc
+			desc = 'LSP: ' .. desc
 		end
 
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
@@ -59,6 +59,7 @@ return {
 			-- Useful status updates for LSP
 			'j-hui/fidget.nvim',
 		},
+
 		config = function()
 			-- LSP settings.
 			--  This function gets run when an LSP connects to a particular buffer.
@@ -68,7 +69,7 @@ return {
 			-- Enable the following language servers
 			-- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 			-- Default LSP SErver, no need to custom
-			local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'emmet_ls', 'dockerls', 'yamlls' }
+			local servers = { 'rust_analyzer', 'tsserver', 'dockerls', 'yamlls' }
 			-- Need to custom engine
 			local custom_servers = { 'html', 'angularls' }
 			local ensure_installed = {}
@@ -160,6 +161,19 @@ return {
 
 		end
 	},
+
+
+    {
+        'simrat39/rust-tools.nvim',
+        opt = function ()
+           local rt = require 'rust-tools' 
+            rt.setup {
+                server = {
+                    on_attach = on_attach
+                }
+            }
+        end
+    },
 
 	{ -- Autocompletion
 		'hrsh7th/nvim-cmp',
