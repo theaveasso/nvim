@@ -69,3 +69,10 @@ set("n", "<leader>bc", vim.cmd.BufferLinePickClose, { silent = true, desc = 'Sel
 -- NVIM TREE
 set("n", "<leader>e", vim.cmd.NvimTreeToggle, { silent = true, desc = 'Toggle NVIM Tree' })
 set("n", "<C-n>", vim.cmd.NvimTreeFocus, { silent = true, desc = 'Focus NVIM Tree' })
+
+-- Hop
+set("", "hlf", vim.cmd.HopLineAC, {silent = true, desc = 'Hop to Line Start Forward'})
+set("", "hlb", vim.cmd.HopLineBC, {silent = true, desc = 'Hop to Line Start Backward'})
+
+set("", "s", vim.cmd.HopChar2AC, {silent = true, desc = 'Hop to Forward Character'})
+set("", "S", vim.cmd.HopChar2BC, {silent = true, desc = 'Hop to Backward Character'})
