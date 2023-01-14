@@ -19,7 +19,6 @@ nvim .
 ## Todo
 - [x] ~~Config personal favorite config~~
 - [x] ~~Vim easymotion using `hop.nvim`~~
-- [x] ~~
 - [x] ~~LSP Config for daily workflow~~
 - [ ] Config Startscreen Dashboard
 - [ ] Ide like Debug mode
