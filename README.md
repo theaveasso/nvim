@@ -1,12 +1,8 @@
-# nvim
-
-Thanks to Jimmy for the [Base config](https://github.com/RoRep1ay/my-nvim-config)
+# .config/nvim
 
 ## Install
 ```
 git clone https://github.com/theaveasso/nvim.git ~/.config/nvim
-```
-```
 nvim .
 ```
 
@@ -22,7 +18,10 @@ nvim .
 - [x] ~~LSP Config for daily workflow~~
 - [ ] Config Startscreen Dashboard
 - [ ] Ide like Debug mode
-Open to pull request for any cool `plugins`
+
+---
+## Thank
+Special thanks to [RoRep1ay/my-nvim-config](https://github.com/RoRep1ay/my-nvim-config)
 
 
 
