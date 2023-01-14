@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require('config/vim-config')
+require('config/opts')
+require('config/remap')
 require('config/fold-config')
-require('config/keymap-config')
 
