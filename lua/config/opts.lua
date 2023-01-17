@@ -29,9 +29,6 @@ opt.backspace = "indent,eol,start"
 
 opt.cursorline = true
 
-opt.signcolumn = "yes"
-opt.colorcolumn = "120"
-
 -- Set colorscheme
 opt.termguicolors = true
 

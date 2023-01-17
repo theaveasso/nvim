@@ -8,9 +8,4 @@ return {
           vim.cmd([[colorscheme everforest]])
         end,
 	},
-
-	{ 'folke/tokyonight.nvim' },
-	{ 'Mofiqul/vscode.nvim' },
-	{ 'bluz71/vim-nightfly-colors' },
-	{ 'bluz71/vim-moonfly-colors' },
 }

@@ -41,15 +41,15 @@ set("n", "<leader>q", vim.diagnostic.setloclist)
 set("n", "<leader>Q", vim.diagnostic.open_float)
 
 -- -- Telescope
-set("n", "<leader>f", require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+set("n", "<leader>sf", require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 set("n", '<leader>o', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-set("n", "<leader>fg", require('telescope.builtin').git_status, { desc = 'Open Changed Files' })
-set("n", "<leader>hp", require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-set("n", "<leader>sk", require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-set("n", "<leader>st", require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+set("n", "<leader>fc", require('telescope.builtin').git_status, { desc = 'Open Changed Files' })
+set("n", "<leader>hp", require('telescope.builtin').help_tags, { desc = 'Search [h]el[p]' })
+set("n", "<leader>sw", require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+set("n", "<leader>sg", require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 set("n", "<leader>sr", require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 set("n", "<leader>sd", require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-set('n', '<leader>sf', function()
+set('n', '<leader>sc', function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
 	require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
 		winblend = 10,

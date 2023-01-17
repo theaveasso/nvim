@@ -1,5 +1,11 @@
 return {
 	{ 'kyazdani42/nvim-tree.lua', opts = {
+        open_on_setup = true,
+        ignore_buffer_on_setup = true,
+        ignore_ft_on_setup = {
+            "gitcommit",
+        },
+
 		update_focused_file = {
 			enable = true,
 			update_cwd = false,

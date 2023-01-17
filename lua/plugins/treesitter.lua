@@ -8,7 +8,7 @@ return {
 		end,
 		opts = function()
 			require('nvim-treesitter.configs').setup {
-				ensure_installed = { 'lua', 'python', 'typescript', 'help', 'bash', 'css', 'json', 'yaml', 'hcl', 'html',
+				ensure_installed = { 'terraform', 'lua', 'python', 'typescript', 'help', 'bash', 'css', 'json', 'yaml', 'hcl', 'html',
 					'dockerfile', 'javascript' },
 
 				highlight = { enable = true },
