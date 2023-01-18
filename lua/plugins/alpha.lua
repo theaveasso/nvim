@@ -1,39 +1,51 @@
 return {
-    { 'goolord/alpha-nvim', opts = true }
+    {
+        'goolord/alpha-nvim',
+        lazy = false,
+        config = function ()
+            local alpha = require 'alpha'
+            local dashboard = require 'alpha.themes.dashboard'
+
+            dashboard.section.header.val = {
+            [[                          ▓╗▄▄                                        ]],
+            [[                          ╙▄▒▒╡╬▀▄▄                                   ]],
+            [[                           ╙▒▒▒▒▒▒▒╬▀╗╖                               ]],
+            [[                            ╟▒▄▄▀▀▀▀▀╨▀▀▀╖                            ]],
+            [[                             ▓▓█▓▀░░▄▀░░╨▄                            ]],
+            [[                           ▄▀▀▀▓▀░░░▄░░░░▌                            ]],
+            [[                          ┌▀▐▄░░░░░▄╨▓▓░░▌                            ]],
+            [[                          ╙╨▀▌░░░░░│▓╙▌░▀▌                            ]],
+            [[   ▄▄▄╓                    ╙█▀▀░░░▄▀▀░█░░▌                            ]],
+            [[  ▄▓▀▀▀┤╡╡╟▒▄╗▒▒▒▒╦╥╓┌     ▄╬░░░░░▄▄╪▀┤░░▌                  ▄▄ ┌▄     ]],
+            [[ ╙█▀▀▒░░░░░░░░░░░░░░░┤╨▀▄ ▀╪▄▄▀╙╙▄░░▓░░░▓                ▀▄▒▌▐▒▌      ]],
+            [[  ▀╝╝▀└▄▌▄╪▄░░░░▌░░░░▀▀▀▄░╬▄▀▒╠╨╫█▓░▌▄▓▀▀╨╜╩▒▒▄           ▓▀█▀╫┤▌ ╒╗  ]],
+            [[      ▒╥▌└       └▀░░░░░│▀░░░░▄▓█▌▌▓╬▓█▀░░░░░░░╨▀▄        ▓░░░░▓▄╬╥▌  ]],
+            [[       └             ▀╬▄░░░░░░▓╬╬╬╬╬╬█▌░░░░░░░░░░░░▀▄     ▄▀┤░░░░▌└   ]],
+            [[                       └▀╬┤░░█╣╬╣╣╬╬╣╬▓▄▒░░░░░░░░░░╙▌  ▄▀░░░░░░▓      ]],
+            [[                          ╟╬╬╚▒╬▒╬╫▒╣╫╪╬▓▓█░░░░░░░░░╫▀│░░░░▄▀         ]],
+            [[                             █╬╣▓▓▓▓▓▌╣▓╣╣╬╣█▀▄░░░░░░░░░░░░▐▀─        ]],
+            [[                              └█╣╬╬╬╣╬╬╬╬╬╬╬╣╬▄ ╙╪▄░░░░░┤▄╝▀          ]],
+            [[                               ▀▌╣╣╬╣╬╬╣╬╬╬╬╬█     └└└└               ]],
+            [[                                ▀╬╣╬╬╬╬╬╬╬╬╬█                         ]],
+            [[                                 ▀╣▀╣╣╣╣╣╣╣╣                          ]],
+            }
+
+            dashboard.section.buttons.val = {
+                dashboard.button("e", "  New file" , ":ene <BAR> startinsert <CR>"),
+                dashboard.button("q", "  Quit NVIM" , ":qa<CR>"),
+            }
+
+            local handle = io.popen('fortune')
+            local fortune = handle:read('*a')
+            handle:close()
+            dashboard.section.footer.val = fortune
+
+            dashboard.config.opts.noautocmd = true
+            
+            alpha.setup(dashboard.config)
+            
+            vim.cmd([[Alpha]])
+        end
+
+    }
 }
-        -- 'goolord/alpha-nvim',
-        -- config = function()
-        --     local alpha = require('alpha')
-        --     local dashboard = alpha.themes.dashboard
-        --
-        --     -- dashboard.section.header.val = 
-        --
-        --     dashboard.section.buttons.val = {
-        --         dashboard.button(
-        --             "f",
-        --             "  Find file",
-        --             "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>"
-        --         ),
-        --         dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-        --         dashboard.button("p", "  Find project", ":Telescope project <CR>"),
-        --         dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-        --         dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-        --         dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-        --         dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
-        --     }
-        --
-        --     local function footer()
-        --         return "Your favorite quote!!"
-        --     end
-        --
-        --     dashboard.section.footer.val = footer()
-        --
-        --     dashboard.section.footer.opts.hl = "Type"
-        --     dashboard.section.header.opts.hl = "Include"
-        --     dashboard.section.buttons.opts.hl = "Keyword"
-        --
-        --     dashboard.opts.opts.noautocmd = true
-        --     alpha.setup(dashboard.opts)
-        --
-        --     vim.cmd([[Alpha]])
-        -- end)

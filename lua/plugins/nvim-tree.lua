@@ -4,6 +4,7 @@ return {
         ignore_buffer_on_setup = true,
         ignore_ft_on_setup = {
             "gitcommit",
+            "alpha"
         },
 
 		update_focused_file = {

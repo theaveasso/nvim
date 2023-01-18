@@ -16,7 +16,8 @@ nvim .
 - [x] ~~Config personal favorite config~~
 - [x] ~~Vim easymotion using `hop.nvim`~~
 - [x] ~~LSP Config for daily workflow~~
-- [ ] Config Startscreen Dashboard
+- [x] ~~Config Startscreen Dashboard~~
+- [ ] Format on save 
 - [ ] Ide like Debug mode
 
 ---
